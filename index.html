@@ -885,6 +885,66 @@
                   </p>
                 </div>
 
+                <div
+                  class="space-y-2 border border-rose-100 rounded-2xl p-3 bg-white/80"
+                >
+                  <p class="text-xs font-semibold text-slate-800">
+                    Conversa sobre o Pix e comprovante
+                  </p>
+                  <p class="text-[11px] text-slate-500">
+                    Depois de fazer o Pix, envie o número de protocolo/ID do comprovante e, se puder, anexe também a imagem/print do comprovante. Vamos receber por e-mail ou no app de mensagens que você escolher e responder por lá.
+                  </p>
+                  <div class="space-y-2 text-[11px]">
+                    <label for="pix-protocol" class="font-medium text-slate-700"
+                      >Número de protocolo / ID do Pix</label
+                    >
+                    <input
+                      id="pix-protocol"
+                      type="text"
+                      maxlength="80"
+                      class="w-full rounded-full border border-rose-200 bg-white px-3 py-2 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
+                      placeholder="Cole aqui o número que aparece no comprovante do Pix"
+                    />
+                  </div>
+                  <div class="space-y-2 text-[11px]">
+                    <label for="pix-chat-message" class="font-medium text-slate-700"
+                      >Mensagem adicional (opcional)</label
+                    >
+                    <textarea
+                      id="pix-chat-message"
+                      rows="2"
+                      maxlength="240"
+                      class="w-full rounded-2xl border border-rose-200 bg-white px-3 py-2 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400 resize-none"
+                      placeholder="Ex.: Olá, acabei de fazer o Pix e este é o número do meu comprovante."
+                    ></textarea>
+                  </div>
+                  <div class="flex flex-wrap items-center gap-2 text-[11px]">
+                    <button
+                      id="pix-email-btn"
+                      type="button"
+                      class="inline-flex items-center justify-center gap-1 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-medium px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-300"
+                    >
+                      Enviar por e-mail
+                    </button>
+                    <button
+                      id="pix-copy-msg-btn"
+                      type="button"
+                      class="inline-flex items-center justify-center gap-1 rounded-full border border-rose-200 bg-white hover:bg-rose-50 text-rose-500 font-medium px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-rose-300"
+                    >
+                      Copiar mensagem
+                    </button>
+                    <p
+                      id="pix-chat-feedback"
+                      class="text-[11px] text-emerald-500 hidden"
+                    >
+                      Mensagem copiada. Cole no WhatsApp, Instagram ou onde preferir.
+                    </p>
+                  </div>
+                  <p class="text-[11px] text-slate-400">
+                    Este espaço só ajuda a montar a mensagem. Depois de copiar ou enviar por e-mail, lembre-se de anexar o print/imagem do comprovante na conversa.
+                  </p>
+                </div>
+
                 <button
                   id="share-btn"
                   type="button"
@@ -950,7 +1010,8 @@
           class="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-2"
         >
           <p>
-            Serviço independente para montar presentes com flores e cartões românticos enviados por link.
+            Serviço independente para montar presentes com flores e cartões
+            românticos enviados por link.
           </p>
           <p class="text-slate-400">
             Dica: salve este link nos favoritos e reaproveite sempre que quiser
@@ -1009,10 +1070,15 @@
         const pixWarningEl = document.getElementById("pix-warning");
         const pixCodeEl = document.getElementById("pix-code");
         const pixCodeWarningEl = document.getElementById("pix-code-warning");
+        const pixProtocolEl = document.getElementById("pix-protocol");
+        const pixChatMsgEl = document.getElementById("pix-chat-message");
+        const pixEmailBtnEl = document.getElementById("pix-email-btn");
+        const pixCopyMsgBtnEl = document.getElementById("pix-copy-msg-btn");
+        const pixChatFeedbackEl = document.getElementById("pix-chat-feedback");
 
         // Código de liberação fixo no front-end.
         // Altere este valor e combine-o com quem irá conferir os pagamentos.
-        const PIX_RELEASE_CODE = "FLOR2025";
+        const PIX_RELEASE_CODE = "GRATIDÃO FLORES COM CARTÃO";
 
         const FONT_CLASSES = [
           "hand-dancing",
@@ -1347,6 +1413,123 @@
           }
 
           return confirmed && codeOk;
+        }
+
+        function buildPixChatMessage() {
+          var protocol = "";
+          if (pixProtocolEl) {
+            protocol = (pixProtocolEl.value || "").trim();
+          }
+          var extra = "";
+          if (pixChatMsgEl) {
+            extra = (pixChatMsgEl.value || "").trim();
+          }
+          var total = "";
+          if (grandTotalEl && grandTotalEl.textContent) {
+            total = grandTotalEl.textContent.trim();
+          }
+
+          var message =
+            "Olá,\n\n" +
+            "Acabei de fazer um Pix para o presente de flores com cartão.\n\n" +
+            "Número de protocolo / ID do Pix: " +
+            (protocol || "(não informado)") +
+            "\n";
+
+          if (total) {
+            message +=
+              "Valor do presente (conforme resumo do site): " + total + "\n";
+          }
+
+          message +=
+            "\nEstou anexando o comprovante deste Pix (print/imagem) nesta conversa.\n";
+
+          if (extra) {
+            message += "\nMensagem adicional: " + extra + "\n";
+          }
+
+          message += "\nObrigado(a)!";
+          return message;
+        }
+
+        if (pixEmailBtnEl) {
+          pixEmailBtnEl.addEventListener("click", function () {
+            var protocol = pixProtocolEl
+              ? (pixProtocolEl.value || "").trim()
+              : "";
+            if (!protocol) {
+              alert(
+                "Por favor, informe o número de protocolo / ID do Pix antes de enviar."
+              );
+              if (pixProtocolEl) {
+                pixProtocolEl.focus();
+              }
+              return;
+            }
+            var body = buildPixChatMessage();
+            var subject = "Confirmação de Pix - Flores com cartão";
+            var mailto =
+              "mailto:sepoloendeu@gmail.com?subject=" +
+              encodeURIComponent(subject) +
+              "&body=" +
+              encodeURIComponent(body);
+            window.location.href = mailto;
+          });
+        }
+
+        if (pixCopyMsgBtnEl) {
+          pixCopyMsgBtnEl.addEventListener("click", function () {
+            var protocol = pixProtocolEl
+              ? (pixProtocolEl.value || "").trim()
+              : "";
+            if (!protocol) {
+              alert(
+                "Por favor, informe o número de protocolo / ID do Pix antes de copiar a mensagem."
+              );
+              if (pixProtocolEl) {
+                pixProtocolEl.focus();
+              }
+              return;
+            }
+            var textToCopy = buildPixChatMessage();
+            if (!textToCopy) return;
+
+            var showFeedback = function () {
+              if (pixChatFeedbackEl) {
+                pixChatFeedbackEl.classList.remove("hidden");
+                setTimeout(function () {
+                  pixChatFeedbackEl.classList.add("hidden");
+                }, 2000);
+              }
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard
+                .writeText(textToCopy)
+                .then(showFeedback)
+                .catch(function () {
+                  try {
+                    var temp = document.createElement("textarea");
+                    temp.value = textToCopy;
+                    document.body.appendChild(temp);
+                    temp.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(temp);
+                    showFeedback();
+                  } catch (e) {}
+                });
+            } else {
+              try {
+                var temp = document.createElement("textarea");
+                temp.value = textToCopy;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand("copy");
+                document.body.removeChild(temp);
+                showFeedback();
+              } catch (e) {}
+            }
+          });
         }
 
         // Compartilhamento
