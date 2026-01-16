@@ -87,684 +87,852 @@
           <div
             class="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-10 items-start"
           >
-            <!-- Coluna esquerda: vitrine + cartão -->
-            <div class="space-y-8">
-              <!-- Hero -->
-              <section class="space-y-4">
-                <div class="inline-flex items-center gap-2 text-xs mb-1">
-                  <span
-                    class="px-2.5 py-1 rounded-full border border-rose-200 bg-rose-50/80 text-rose-500 font-medium"
-                    >Romântico & delicado</span
-                  >
-                  <span class="text-slate-400 hidden sm:inline">
-                    Flores reais, mensagem em escrita à mão e um link para você
-                    enviar para quem ama.
-                  </span>
-                </div>
-                <h1
-                  class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900"
+            <!-- Coluna esquerda: vitrine + cartão + abas -->
+            <div class="space-y-4">
+              <!-- Abas -->
+              <div class="flex flex-col gap-2">
+                <div
+                  class="inline-flex rounded-full border border-rose-100 bg-rose-50 p-1 text-[11px]"
                 >
-                  Monte um presente com
-                  <span class="text-rose-500">flores e cartão</span> em poucos
-                  cliques
-                </h1>
-                <p class="text-sm md:text-base text-slate-600 max-w-2xl">
-                  Escolha flores e buquês super românticos (valores simbólicos
-                  entre <span class="font-semibold">R$ 5,00 e R$ 10,00</span>),
-                  escreva uma mensagem em fonte de escrita à mão e gere um
-                  <span class="font-semibold">link perfeito</span> para enviar
-                  pelo WhatsApp, Instagram, Facebook e muito mais.
+                  <button
+                    id="tab-build"
+                    type="button"
+                    class="px-3 py-1.5 rounded-full font-semibold bg-rose-500 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-rose-300"
+                  >
+                    Montar presente
+                  </button>
+                  <button
+                    id="tab-view"
+                    type="button"
+                    class="px-3 py-1.5 rounded-full font-semibold bg-white text-rose-500 focus:outline-none focus:ring-2 focus:ring-rose-300"
+                  >
+                    Ver presente recebido
+                  </button>
+                </div>
+                <p class="text-[11px] text-slate-400">
+                  Quem recebe o link é direcionado direto para a aba
+                  "Ver presente recebido" para ver as flores, o cartão e a
+                  música.
                 </p>
-                <div
-                  class="flex flex-wrap gap-3 text-[11px] text-slate-500 border border-rose-100 bg-white/70 rounded-2xl px-4 py-2.5"
-                >
-                  <div class="flex items-center gap-2">
-                    <span
-                      class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
-                      >1</span
-                    >
-                    <span>Escolha flores e buquês românticos</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span
-                      class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
-                      >2</span
-                    >
-                    <span>Escreva o cartão com uma fonte delicada</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span
-                      class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
-                      >3</span
-                    >
-                    <span>Gere o link e envie nas redes sociais</span>
-                  </div>
-                </div>
-              </section>
+              </div>
 
-              <!-- Vitrine de flores e buquês -->
-              <section class="space-y-4">
-                <div
-                  class="flex flex-col sm:flex-row sm:items-end justify-between gap-2"
-                >
-                  <div>
-                    <h2
-                      class="text-lg md:text-xl font-semibold text-slate-900 flex items-center gap-2"
+              <!-- Painel de montagem do presente -->
+              <div id="builder-pane" class="space-y-8">
+                <!-- Hero -->
+                <section class="space-y-4">
+                  <div class="inline-flex items-center gap-2 text-xs mb-1">
+                    <span
+                      class="px-2.5 py-1 rounded-full border border-rose-200 bg-rose-50/80 text-rose-500 font-medium"
+                      >Romântico & delicado</span
                     >
-                      Flores e buquês românticos
-                    </h2>
-                    <p class="text-xs text-slate-500">
-                      Clique em um arranjo para adicioná-lo ao seu presente.
-                      Todos os valores ficam entre
-                      <span class="font-medium">R$ 5,00 e R$ 10,00</span> por
-                      item.
+                    <span class="text-slate-400 hidden sm:inline">
+                      Flores reais, mensagem em escrita à mão e um link para
+                      você enviar para quem ama.
+                    </span>
+                  </div>
+                  <h1
+                    class="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900"
+                  >
+                    Monte um presente com
+                    <span class="text-rose-500">flores e cartão</span> em
+                    poucos cliques
+                  </h1>
+                  <p class="text-sm md:text-base text-slate-600 max-w-2xl">
+                    Escolha flores e buquês super românticos (valores simbólicos
+                    entre
+                    <span class="font-semibold">R$ 5,00 e R$ 10,00</span>),
+                    escreva uma mensagem em fonte de escrita à mão e gere um
+                    <span class="font-semibold">link perfeito</span> para
+                    enviar pelo WhatsApp, Instagram, Facebook e muito mais.
+                  </p>
+                  <div
+                    class="flex flex-wrap gap-3 text-[11px] text-slate-500 border border-rose-100 bg-white/70 rounded-2xl px-4 py-2.5"
+                  >
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
+                        >1</span
+                      >
+                      <span>Escolha flores e buquês românticos</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
+                        >2</span
+                      >
+                      <span>Escreva o cartão com uma fonte delicada</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[11px] font-semibold text-rose-500"
+                        >3</span
+                      >
+                      <span>Gere o link e envie nas redes sociais</span>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Vitrine de flores e buquês -->
+                <section class="space-y-4">
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+                  >
+                    <div>
+                      <h2
+                        class="text-lg md:text-xl font-semibold text-slate-900 flex items-center gap-2"
+                      >
+                        Flores e buquês românticos
+                      </h2>
+                      <p class="text-xs text-slate-500">
+                        Clique em um arranjo para adicioná-lo ao seu presente.
+                        Todos os valores ficam entre
+                        <span class="font-medium">R$ 5,00 e R$ 10,00</span> por
+                        item.
+                      </p>
+                    </div>
+                    <p class="text-[11px] text-slate-400">
+                      Imagens meramente ilustrativas, focadas em texturas e
+                      cores realistas.
                     </p>
                   </div>
-                  <p class="text-[11px] text-slate-400">
-                    Imagens meramente ilustrativas, focadas em texturas e cores
-                    realistas.
-                  </p>
-                </div>
 
-                <div
-                  class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
-                >
-                  <!-- Produto 1 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="rose-classico"
-                    data-product-name="Bouquê Clássico de Rosas Vermelhas"
-                    data-product-price="9.5"
-                    data-product-type="buque"
-                    aria-label="Adicionar Bouquê Clássico de Rosas Vermelhas"
+                  <div
+                    class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
                   >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/931166/pexels-photo-931166.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Bouquê de rosas vermelhas realistas em tom profundo"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Buquê romântico
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Bouquê Clássico de Rosas Vermelhas
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Rosas aveludadas, laço de cetim e folhagens suaves para
-                        uma declaração de amor intensa.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 9,50</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-
-                  <!-- Produto 2 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="rosa-unica"
-                    data-product-name="Rosa Única com Caule Longo"
-                    data-product-price="5.0"
-                    data-product-type="flor"
-                    aria-label="Adicionar Rosa Única com Caule Longo"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Rosa vermelha realista com caule longo"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Gesto delicado
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Rosa Única com Caule Longo
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Um clássico minimalista: uma rosa perfeita, pronta para
-                        acompanhar uma mensagem inesquecível.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 5,00</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-
-                  <!-- Produto 3 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="tulipas-rosadas"
-                    data-product-name="Tulipas Cor-de-Rosa Suaves"
-                    data-product-price="8.9"
-                    data-product-type="buque"
-                    aria-label="Adicionar Tulipas Cor-de-Rosa Suaves"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/2067633/pexels-photo-2067633.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Buquê de tulipas cor-de-rosa em close realista"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Doce e delicado
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Tulipas Cor-de-Rosa Suaves
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Tulipas em tom blush, perfeitas para um amor leve,
-                        gentil e cheio de carinho.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 8,90</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-
-                  <!-- Produto 4 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="campo-margaridas"
-                    data-product-name="Margaridas do Campo"
-                    data-product-price="5.9"
-                    data-product-type="buque"
-                    aria-label="Adicionar Margaridas do Campo"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Margaridas brancas e amarelas em campo iluminado"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Amor leve
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Margaridas do Campo
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Buquê cheio de luz, com flores brancas e miolos
-                        dourados, perfeito para mensagens espontâneas.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 5,90</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-
-                  <!-- Produto 5 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="lavandas-mini"
-                    data-product-name="Mini Buquê de Lavandas"
-                    data-product-price="6.5"
-                    data-product-type="buque"
-                    aria-label="Adicionar Mini Buquê de Lavandas"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/931162/pexels-photo-931162.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Mini buquê de lavandas roxas em foco realista"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Calmaria e afeto
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Mini Buquê de Lavandas
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Pequeno, perfumado e cheio de charme, ideal para um
-                        gesto romântico discreto.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 6,50</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-
-                  <!-- Produto 6 -->
-                  <button
-                    type="button"
-                    class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
-                    data-product-id="rose-champagne"
-                    data-product-name="Bouquê Rosé & Champagne"
-                    data-product-price="10.0"
-                    data-product-type="buque"
-                    aria-label="Adicionar Bouquê Rosé & Champagne"
-                  >
-                    <div class="aspect-[4/3] overflow-hidden">
-                      <img
-                        src="https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Bouquê de rosas vermelhas exuberantes em close realista"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div class="p-4 space-y-1.5">
-                      <p
-                        class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
-                      >
-                        Sofisticação
-                      </p>
-                      <h3 class="font-semibold text-slate-900 text-sm">
-                        Bouquê Rosé & Champagne
-                      </h3>
-                      <p class="text-xs text-slate-500">
-                        Tons pastel, pétalas cheias de textura e acabamento
-                        elegante para ocasiões marcantes.
-                      </p>
-                      <div
-                        class="flex items-center justify-between pt-1 text-sm"
-                      >
-                        <span class="font-semibold text-rose-500"
-                          >R$ 10,00</span
-                        >
-                        <span
-                          class="text-[11px] text-rose-400 group-hover:text-rose-500"
-                          >Clique para adicionar</span
-                        >
-                      </div>
-                    </div>
-                  </button>
-                </div>
-              </section>
-
-              <!-- Cartão & fontes de escrita à mão -->
-              <section class="space-y-4">
-                <div
-                  class="flex flex-col sm:flex-row sm:items-end justify-between gap-2"
-                >
-                  <div>
-                    <h2
-                      class="text-lg md:text-xl font-semibold text-slate-900 flex items-center gap-2"
+                    <!-- Produto 1 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="rose-classico"
+                      data-product-name="Bouquê Clássico de Rosas Vermelhas"
+                      data-product-price="9.5"
+                      data-product-type="buque"
+                      aria-label="Adicionar Bouquê Clássico de Rosas Vermelhas"
                     >
-                      Mensagem no cartão
-                    </h2>
-                    <p class="text-xs text-slate-500 max-w-xl">
-                      Escreva uma mensagem especial e escolha uma fonte de
-                      escrita à mão para deixar tudo mais íntimo e romântico.
-                    </p>
-                  </div>
-                  <p class="text-[11px] text-slate-400">
-                    Todas as fontes foram pensadas para lembrar cartas
-                    escritas à mão.
-                  </p>
-                </div>
-
-                <div
-                  class="bg-white/90 rounded-3xl shadow-lg border border-rose-100 p-5 md:p-6 space-y-4"
-                >
-                  <div class="grid md:grid-cols-2 gap-5">
-                    <!-- Configuração de fonte e texto -->
-                    <div class="space-y-4">
-                      <div class="space-y-2">
-                        <p class="text-xs font-medium text-slate-600">
-                          Escolha a fonte da sua mensagem
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/931166/pexels-photo-931166.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Bouquê de rosas vermelhas realistas em tom profundo"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Buquê romântico
                         </p>
-                        <div class="grid grid-cols-2 gap-2 text-sm">
-                          <button
-                            type="button"
-                            class="font-medium px-3 py-2 rounded-full border border-rose-300 bg-rose-50 text-rose-600 hand-dancing text-sm"
-                            data-font="hand-dancing"
-                          >
-                            Romântico suave
-                          </button>
-                          <button
-                            type="button"
-                            class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-pacifico text-sm"
-                            data-font="hand-pacifico"
-                          >
-                            Bem apaixonado
-                          </button>
-                          <button
-                            type="button"
-                            class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-shadows text-sm"
-                            data-font="hand-shadows"
-                          >
-                            Carta discreta
-                          </button>
-                          <button
-                            type="button"
-                            class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-indie text-sm"
-                            data-font="hand-indie"
-                          >
-                            Jeito espontâneo
-                          </button>
-                        </div>
-                      </div>
-
-                      <div class="space-y-2">
-                        <label
-                          for="message-input"
-                          class="text-xs font-medium text-slate-600"
-                          >Escreva a mensagem</label
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Bouquê Clássico de Rosas Vermelhas
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Rosas aveludadas, laço de cetim e folhagens suaves
+                          para uma declaração de amor intensa.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
                         >
-                        <textarea
-                          id="message-input"
-                          maxlength="280"
-                          class="w-full min-h-[130px] resize-none rounded-2xl border border-rose-100 bg-rose-50/60 px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
-                          placeholder="Ex.: Desde que você chegou, tudo ficou mais leve e colorido. Obrigado por ser meu pedaço favorito do dia."
-                        ></textarea>
-                        <div class="flex justify-between text-[11px]">
-                          <span class="text-slate-400"
-                            >Máx. 280 caracteres</span
+                          <span class="font-semibold text-rose-500"
+                            >R$ 9,50</span
                           >
                           <span
-                            id="char-count"
-                            class="text-slate-400"
-                            aria-live="polite"
-                            >0</span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
                           >
+                        </div>
+                      </div>
+                    </button>
+
+                    <!-- Produto 2 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="rosa-unica"
+                      data-product-name="Rosa Única com Caule Longo"
+                      data-product-price="5.0"
+                      data-product-type="flor"
+                      aria-label="Adicionar Rosa Única com Caule Longo"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/56866/garden-rose-red-pink-56866.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Rosa vermelha realista com caule longo"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Gesto delicado
+                        </p>
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Rosa Única com Caule Longo
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Um clássico minimalista: uma rosa perfeita, pronta
+                          para acompanhar uma mensagem inesquecível.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
+                        >
+                          <span class="font-semibold text-rose-500"
+                            >R$ 5,00</span
+                          >
+                          <span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
+                          >
+                        </div>
+                      </div>
+                    </button>
+
+                    <!-- Produto 3 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="tulipas-rosadas"
+                      data-product-name="Tulipas Cor-de-Rosa Suaves"
+                      data-product-price="8.9"
+                      data-product-type="buque"
+                      aria-label="Adicionar Tulipas Cor-de-Rosa Suaves"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/2067633/pexels-photo-2067633.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Buquê de tulipas cor-de-rosa em close realista"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Doce e delicado
+                        </p>
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Tulipas Cor-de-Rosa Suaves
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Tulipas em tom blush, perfeitas para um amor leve,
+                          gentil e cheio de carinho.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
+                        >
+                          <span class="font-semibold text-rose-500"
+                            >R$ 8,90</span
+                          >
+                          <span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
+                          >
+                        </div>
+                      </div>
+                    </button>
+
+                    <!-- Produto 4 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="campo-margaridas"
+                      data-product-name="Margaridas do Campo"
+                      data-product-price="5.9"
+                      data-product-type="buque"
+                      aria-label="Adicionar Margaridas do Campo"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/36764/marguerite-daisy-beautiful-beauty.jpg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Margaridas brancas e amarelas em campo iluminado"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Amor leve
+                        </p>
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Margaridas do Campo
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Buquê cheio de luz, com flores brancas e miolos
+                          dourados, perfeito para mensagens espontâneas.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
+                        >
+                          <span class="font-semibold text-rose-500"
+                            >R$ 5,90</span
+                          >
+                          <span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
+                          >
+                        </div>
+                      </div>
+                    </button>
+
+                    <!-- Produto 5 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="lavandas-mini"
+                      data-product-name="Mini Buquê de Lavandas"
+                      data-product-price="6.5"
+                      data-product-type="buque"
+                      aria-label="Adicionar Mini Buquê de Lavandas"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/931162/pexels-photo-931162.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Mini buquê de lavandas roxas em foco realista"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Calmaria e afeto
+                        </p>
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Mini Buquê de Lavandas
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Pequeno, perfumado e cheio de charme, ideal para um
+                          gesto romântico discreto.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
+                        >
+                          <span class="font-semibold text-rose-500"
+                            >R$ 6,50</span
+                          >
+                          <span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
+                          >
+                        </div>
+                      </div>
+                    </button>
+
+                    <!-- Produto 6 -->
+                    <button
+                      type="button"
+                      class="group text-left bg-white/90 rounded-3xl shadow-sm hover:shadow-xl border border-rose-100 overflow-hidden flex flex-col h-full transition-all duration-200"
+                      data-product-id="rose-champagne"
+                      data-product-name="Bouquê Rosé & Champagne"
+                      data-product-price="10.0"
+                      data-product-type="buque"
+                      aria-label="Adicionar Bouquê Rosé & Champagne"
+                    >
+                      <div class="aspect-[4/3] overflow-hidden">
+                        <img
+                          src="https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg?auto=compress&cs=tinysrgb&w=800"
+                          alt="Bouquê de rosas vermelhas exuberantes em close realista"
+                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div class="p-4 space-y-1.5">
+                        <p
+                          class="text-[11px] font-semibold uppercase tracking-[0.18em] text-rose-400"
+                        >
+                          Sofisticação
+                        </p>
+                        <h3 class="font-semibold text-slate-900 text-sm">
+                          Bouquê Rosé & Champagne
+                        </h3>
+                        <p class="text-xs text-slate-500">
+                          Tons pastel, pétalas cheias de textura e acabamento
+                          elegante para ocasiões marcantes.
+                        </p>
+                        <div
+                          class="flex items-center justify-between pt-1 text-sm"
+                        >
+                          <span class="font-semibold text-rose-500"
+                            >R$ 10,00</span
+                          >
+                          <span
+                            class="text-[11px] text-rose-400 group-hover:text-rose-500"
+                            >Clique para adicionar</span
+                          >
+                        </div>
+                      </div>
+                    </button>
+
+                  </div>
+                </section>
+
+                <!-- Cartão & fontes de escrita à mão -->
+                <section class="space-y-4">
+                  <div
+                    class="flex flex-col sm:flex-row sm:items-end justify-between gap-2"
+                  >
+                    <div>
+                      <h2
+                        class="text-lg md:text-xl font-semibold text-slate-900 flex items-center gap-2"
+                      >
+                        Mensagem no cartão
+                      </h2>
+                      <p class="text-xs text-slate-500 max-w-xl">
+                        Escreva uma mensagem especial e escolha uma fonte de
+                        escrita à mão para deixar tudo mais íntimo e romântico.
+                      </p>
+                    </div>
+                    <p class="text-[11px] text-slate-400">
+                      Todas as fontes foram pensadas para lembrar cartas
+                      escritas à mão.
+                    </p>
+                  </div>
+
+                  <div
+                    class="bg-white/90 rounded-3xl shadow-lg border border-rose-100 p-5 md:p-6 space-y-4"
+                  >
+                    <div class="grid md:grid-cols-2 gap-5">
+                      <!-- Configuração de fonte e texto -->
+                      <div class="space-y-4">
+                        <div class="space-y-2">
+                          <p class="text-xs font-medium text-slate-600">
+                            Escolha a fonte da sua mensagem
+                          </p>
+                          <div class="grid grid-cols-2 gap-2 text-sm">
+                            <button
+                              type="button"
+                              class="font-medium px-3 py-2 rounded-full border border-rose-300 bg-rose-50 text-rose-600 hand-dancing text-sm"
+                              data-font="hand-dancing"
+                            >
+                              Romântico suave
+                            </button>
+                            <button
+                              type="button"
+                              class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-pacifico text-sm"
+                              data-font="hand-pacifico"
+                            >
+                              Bem apaixonado
+                            </button>
+                            <button
+                              type="button"
+                              class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-shadows text-sm"
+                              data-font="hand-shadows"
+                            >
+                              Carta discreta
+                            </button>
+                            <button
+                              type="button"
+                              class="font-medium px-3 py-2 rounded-full border border-rose-100 bg-white text-slate-700 hand-indie text-sm"
+                              data-font="hand-indie"
+                            >
+                              Jeito espontâneo
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="space-y-2">
+                          <label
+                            for="message-input"
+                            class="text-xs font-medium text-slate-600"
+                            >Escreva a mensagem</label
+                          >
+                          <textarea
+                            id="message-input"
+                            maxlength="280"
+                            class="w-full min-h-[130px] resize-none rounded-2xl border border-rose-100 bg-rose-50/60 px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
+                            placeholder="Ex.: Desde que você chegou, tudo ficou mais leve e colorido. Obrigado por ser meu pedaço favorito do dia."
+                          ></textarea>
+                          <div class="flex justify-between text-[11px]">
+                            <span class="text-slate-400"
+                              >Máx. 280 caracteres</span
+                            >
+                            <span
+                              id="char-count"
+                              class="text-slate-400"
+                              aria-live="polite"
+                              >0</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Pré-visualização do cartão -->
+                      <div class="space-y-3">
+                        <p
+                          class="text-xs font-medium uppercase tracking-[0.2em] text-rose-400"
+                        >
+                          Pré-visualização do cartão
+                        </p>
+                        <div
+                          class="bg-rose-50 border border-rose-100 rounded-2xl p-3 h-full flex items-stretch"
+                        >
+                          <div
+                            class="bg-white rounded-xl border border-rose-100 shadow-inner px-4 py-3 w-full flex flex-col justify-between min-h-[160px]"
+                          >
+                            <div>
+                              <p
+                                class="text-[11px] uppercase tracking-[0.28em] text-rose-300"
+                              >
+                                Para alguém muito especial
+                              </p>
+                              <p
+                                id="message-preview"
+                                class="mt-3 text-lg text-slate-700 hand-dancing leading-relaxed break-words whitespace-pre-wrap"
+                              >
+                                Clique para escrever uma mensagem cheia de amor,
+                                do jeitinho que você diria pessoalmente.
+                              </p>
+                            </div>
+
+                            <div
+                              id="music-preview"
+                              class="mt-3 text-[11px] text-slate-500 flex items-center justify-between border-t border-dashed border-rose-100 pt-2"
+                              hidden
+                            >
+                              <span>Música especial adicionada ao presente</span>
+                              <a
+                                id="music-preview-link"
+                                href="#"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-rose-500 font-medium underline"
+                                >Abrir música</a
+                              >
+                            </div>
+
+                            <p
+                              class="mt-4 text-[11px] text-right text-slate-400"
+                            >
+                              Ass:
+                              <span id="signature-preview"
+                                >Seu amor secreto</span
+                              >
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="space-y-2">
+                          <label
+                            for="signature-input"
+                            class="text-xs font-medium text-slate-600"
+                            >Assinatura (opcional)</label
+                          >
+                          <input
+                            id="signature-input"
+                            type="text"
+                            maxlength="60"
+                            class="w-full rounded-full border border-rose-100 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
+                            placeholder="Coloque seu nome ou apelido carinhoso"
+                          />
                         </div>
                       </div>
                     </div>
 
-                    <!-- Pré-visualização do cartão -->
-                    <div class="space-y-3">
-                      <p
-                        class="text-xs font-medium uppercase tracking-[0.2em] text-rose-400"
-                      >
-                        Pré-visualização do cartão
-                      </p>
+                    <!-- Extra: imagem da galeria -->
+                    <div
+                      class="mt-3 border-t border-dashed border-rose-100 pt-4 space-y-3"
+                    >
+                      <div class="flex flex-wrap items-center justify-between">
+                        <div class="space-y-0.5">
+                          <p
+                            class="text-xs font-medium uppercase tracking-[0.18em] text-rose-400"
+                          >
+                            Extra opcional
+                          </p>
+                          <p class="text-sm font-semibold text-slate-800">
+                            Adicionar imagem da galeria
+                          </p>
+                          <p class="text-xs text-slate-500 max-w-md">
+                            Inclua uma imagem romântica super realista para
+                            acompanhar o cartão. Cada imagem da galeria custa
+                            <span class="font-semibold">R$ 2,00</span> a mais
+                            no presente.
+                          </p>
+                        </div>
+                        <div class="text-right mt-2 sm:mt-0">
+                          <p class="text-xs text-slate-400">Adicional único</p>
+                          <p class="text-sm font-semibold text-rose-500">
+                            + R$ 2,00
+                          </p>
+                          <label
+                            class="inline-flex items-center gap-2 mt-2 text-xs text-slate-600 cursor-pointer"
+                          >
+                            <input
+                              id="gallery-toggle"
+                              type="checkbox"
+                              class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400"
+                            />
+                            <span>Incluir imagem da galeria</span>
+                          </label>
+                        </div>
+                      </div>
+
                       <div
-                        class="bg-rose-50 border border-rose-100 rounded-2xl p-3 h-full flex items-stretch"
+                        class="grid grid-cols-3 gap-2 text-[11px] text-slate-500"
                       >
                         <div
-                          class="bg-white rounded-xl border border-rose-100 shadow-inner px-4 py-3 w-full flex flex-col justify-between min-h-[160px]"
+                          class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50"
                         >
-                          <div>
-                            <p
-                              class="text-[11px] uppercase tracking-[0.28em] text-rose-300"
-                            >
-                              Para alguém muito especial
-                            </p>
-                            <p
-                              id="message-preview"
-                              class="mt-3 text-lg text-slate-700 hand-dancing leading-relaxed break-words whitespace-pre-wrap"
-                            >
-                              Clique para escrever uma mensagem cheia de amor,
-                              do jeitinho que você diria pessoalmente.
-                            </p>
-                          </div>
-
                           <div
-                            id="music-preview"
-                            class="mt-3 text-[11px] text-slate-500 flex items-center justify-between border-t border-dashed border-rose-100 pt-2"
-                            hidden
-                          >
-                            <span>Música especial adicionada ao presente</span>
-                            <a
-                              id="music-preview-link"
-                              href="#"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="text-rose-500 font-medium underline"
-                              >Abrir música</a
-                            >
-                          </div>
+                            class="w-full h-full bg-cover bg-center"
+                            style="background-image: url('https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=800');"
+                          ></div>
+                        </div>
+                        <div
+                          class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50"
+                        >
+                          <div
+                            class="w-full h-full bg-cover bg-center"
+                            style="background-image: url('https://images.pexels.com/photos/931167/pexels-photo-931167.jpeg?auto=compress&cs=tinysrgb&w=800');"
+                          ></div>
+                        </div>
+                        <div
+                          class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50 flex items-center justify-center px-2 text-center"
+                        >
+                          <span>
+                            Exemplos de imagens românticas em alta resolução
+                            para acompanhar o seu link.
+                          </span>
+                        </div>
+                      </div>
+                    </div>
 
+                    <!-- Música opcional -->
+                    <div
+                      class="mt-3 border-t border-dashed border-rose-100 pt-4 space-y-3"
+                    >
+                      <div
+                        class="flex flex-wrap items-center justify-between gap-2"
+                      >
+                        <div class="space-y-0.5">
                           <p
-                            class="mt-4 text-[11px] text-right text-slate-400"
+                            class="text-xs font-medium uppercase tracking-[0.18em] text-rose-400"
                           >
-                            Ass:
-                            <span id="signature-preview">Seu amor secreto</span>
+                            Música opcional
+                          </p>
+                          <p class="text-sm font-semibold text-slate-800">
+                            Adicionar link de música
+                          </p>
+                          <p class="text-xs text-slate-500 max-w-md">
+                            Cole um link de uma música do Spotify ou do YouTube
+                            para acompanhar seu presente. O link será salvo
+                            junto com o cartão.
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          for="music-input"
+                          class="text-xs font-medium text-slate-600"
+                          >Link da música (Spotify ou YouTube)</label
+                        >
+                        <input
+                          id="music-input"
+                          type="url"
+                          inputmode="url"
+                          class="mt-1 w-full rounded-full border border-rose-100 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
+                          placeholder="Ex.: https://open.spotify.com/... ou https://www.youtube.com/watch?v=..."
+                        />
+                        <p class="mt-1 text-[11px] text-slate-400">
+                          Quem receber o link poderá abrir essa música junto com
+                          o cartão.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <!-- Como funciona -->
+                <section class="space-y-3">
+                  <h2 class="text-sm font-semibold text-slate-800">
+                    Como usar este link de flores com cartão
+                  </h2>
+                  <div
+                    class="grid md:grid-cols-3 gap-3 text-[11px] text-slate-500"
+                  >
+                    <div
+                      class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
+                    >
+                      <p class="font-semibold text-slate-800 mb-1 text-sm">
+                        1. Monte o presente
+                      </p>
+                      <p>
+                        Combine flores, buquês, mensagem e, se quiser, uma
+                        imagem da galeria por R$ 2,00.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
+                    >
+                      <p class="font-semibold text-slate-800 mb-1 text-sm">
+                        2. Gere o link
+                      </p>
+                      <p>
+                        Clique em "Gerar link para compartilhar" e copie o
+                        link criado automaticamente.
+                      </p>
+                    </div>
+                    <div
+                      class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
+                    >
+                      <p class="font-semibold text-slate-800 mb-1 text-sm">
+                        3. Envie nas redes sociais
+                      </p>
+                      <p>
+                        Cole o link em conversas no WhatsApp, direct do
+                        Instagram, Facebook ou qualquer outra rede.
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Painel de visualização do presente recebido -->
+              <div id="viewer-pane" class="space-y-6 hidden">
+                <section class="space-y-4">
+                  <div
+                    class="relative overflow-hidden rounded-3xl border border-rose-100 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100 shadow-lg"
+                  >
+                    <!-- detalhes decorativos suaves -->
+                    <div
+                      class="pointer-events-none absolute -top-10 -right-10 w-32 h-32 bg-rose-200/40 rounded-full blur-3xl"
+                    ></div>
+                    <div
+                      class="pointer-events-none absolute -bottom-16 -left-8 w-36 h-36 bg-pink-200/50 rounded-full blur-3xl"
+                    ></div>
+
+                    <div class="relative p-5 md:p-6 space-y-5">
+                      <div class="flex items-center gap-2">
+                        <span
+                          class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-rose-500 text-white text-sm shadow-md"
+                        >
+                          ❤
+                        </span>
+                        <div class="space-y-0.5">
+                          <p class="text-[11px] font-semibold text-rose-500">
+                            Presente recebido com carinho
+                          </p>
+                          <p
+                            class="text-xs text-slate-500 max-w-xl leading-snug"
+                          >
+                            Este é o cantinho para você abrir com calma o
+                            presente que prepararam pensando em cada detalhe:
+                            flores, palavras e, se tiver, até uma música
+                            especial.
                           </p>
                         </div>
                       </div>
 
-                      <div class="space-y-2">
-                        <label
-                          for="signature-input"
-                          class="text-xs font-medium text-slate-600"
-                          >Assinatura (opcional)</label
-                        >
-                        <input
-                          id="signature-input"
-                          type="text"
-                          maxlength="60"
-                          class="w-full rounded-full border border-rose-100 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
-                          placeholder="Coloque seu nome ou apelido carinhoso"
-                        />
-                      </div>
-                    </div>
-                  </div>
+                      <div class="grid md:grid-cols-2 gap-6 items-start">
+                        <div class="space-y-3">
+                          <p
+                            class="text-[11px] font-medium uppercase tracking-[0.18em] text-rose-400"
+                          >
+                            Cartão para você
+                          </p>
+                          <div
+                            class="bg-rose-50/80 border border-rose-100 rounded-2xl p-3 h-full flex items-stretch"
+                          >
+                            <div
+                              class="bg-white/90 rounded-xl border border-rose-100 shadow-inner px-4 py-3 w-full flex flex-col justify-between min-h-[180px]"
+                            >
+                              <div>
+                                <p
+                                  class="text-[11px] uppercase tracking-[0.28em] text-rose-300"
+                                >
+                                  Para você, com todo o meu carinho
+                                </p>
+                                <p
+                                  id="view-message"
+                                  class="mt-3 text-lg text-slate-700 hand-dancing leading-relaxed break-words whitespace-pre-wrap"
+                                >
+                                  Quando alguém te enviar um link de presente, a
+                                  mensagem aparece aqui.
+                                </p>
+                              </div>
 
-                  <!-- Extra: imagem da galeria -->
-                  <div
-                    class="mt-3 border-t border-dashed border-rose-100 pt-4 space-y-3"
-                  >
-                    <div class="flex flex-wrap items-center justify-between">
-                      <div class="space-y-0.5">
-                        <p
-                          class="text-xs font-medium uppercase tracking-[0.18em] text-rose-400"
-                        >
-                          Extra opcional
-                        </p>
-                        <p class="text-sm font-semibold text-slate-800">
-                          Adicionar imagem da galeria
-                        </p>
-                        <p class="text-xs text-slate-500 max-w-md">
-                          Inclua uma imagem romântica super realista para
-                          acompanhar o cartão. Cada imagem da galeria custa
-                          <span class="font-semibold">R$ 2,00</span> a mais
-                          no presente.
-                        </p>
-                      </div>
-                      <div class="text-right mt-2 sm:mt-0">
-                        <p class="text-xs text-slate-400">Adicional único</p>
-                        <p class="text-sm font-semibold text-rose-500">
-                          + R$ 2,00
-                        </p>
-                        <label
-                          class="inline-flex items-center gap-2 mt-2 text-xs text-slate-600 cursor-pointer"
-                        >
-                          <input
-                            id="gallery-toggle"
-                            type="checkbox"
-                            class="w-4 h-4 rounded border-rose-300 text-rose-500 focus:ring-rose-400"
-                          />
-                          <span>Incluir imagem da galeria</span>
-                        </label>
-                      </div>
-                    </div>
+                              <div
+                                id="view-music"
+                                class="mt-3 text-[11px] text-slate-500 flex items-center justify-between border-t border-dashed border-rose-100 pt-2"
+                                hidden
+                              >
+                                <span
+                                  >Este presente vem com uma música especial</span
+                                >
+                                <a
+                                  id="view-music-link"
+                                  href="#"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  class="text-rose-500 font-medium underline"
+                                  >Abrir música</a
+                                >
+                              </div>
 
-                    <div
-                      class="grid grid-cols-3 gap-2 text-[11px] text-slate-500"
-                    >
-                      <div
-                        class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50"
-                      >
-                        <div
-                          class="w-full h-full bg-cover bg-center"
-                          style="background-image: url('https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=800');"
-                        ></div>
-                      </div>
-                      <div
-                        class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50"
-                      >
-                        <div
-                          class="w-full h-full bg-cover bg-center"
-                          style="background-image: url('https://images.pexels.com/photos/931167/pexels-photo-931167.jpeg?auto=compress&cs=tinysrgb&w=800');"
-                        ></div>
-                      </div>
-                      <div
-                        class="aspect-[4/3] rounded-xl overflow-hidden border border-rose-100 bg-rose-50 flex items-center justify-center px-2 text-center"
-                      >
-                        <span>
-                          Exemplos de imagens românticas em alta resolução para
-                          acompanhar o seu link.
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                              <p
+                                class="mt-4 text-[11px] text-right text-slate-400"
+                              >
+                                Ass:
+                                <span id="view-signature">Seu amor secreto</span>
+                              </p>
+                            </div>
+                          </div>
 
-                  <!-- Música opcional -->
-                  <div
-                    class="mt-3 border-t border-dashed border-rose-100 pt-4 space-y-3"
-                  >
-                    <div
-                      class="flex flex-wrap items-center justify-between gap-2"
-                    >
-                      <div class="space-y-0.5">
-                        <p
-                          class="text-xs font-medium uppercase tracking-[0.18em] text-rose-400"
-                        >
-                          Música opcional
-                        </p>
-                        <p class="text-sm font-semibold text-slate-800">
-                          Adicionar link de música
-                        </p>
-                        <p class="text-xs text-slate-500 max-w-md">
-                          Cole um link de uma música do Spotify ou do YouTube
-                          para acompanhar seu presente. O link será salvo junto
-                          com o cartão.
-                        </p>
+                          <div
+                            id="view-gallery"
+                            class="text-[11px] text-rose-500 flex items-center gap-2"
+                            hidden
+                          >
+                            <span
+                              class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[13px]"
+                              >❤</span
+                            >
+                            <span
+                              >Este presente vem com uma imagem romântica da
+                              galeria para deixar tudo ainda mais especial.</span
+                            >
+                          </div>
+                        </div>
+
+                        <div class="space-y-3">
+                          <p
+                            class="text-[11px] font-medium uppercase tracking-[0.18em] text-rose-400"
+                          >
+                            Flores e buquês deste presente
+                          </p>
+                          <div
+                            id="view-items"
+                            class="space-y-3 text-sm bg-white/80 border border-rose-100 rounded-2xl p-3"
+                          >
+                            <p class="text-xs text-slate-400">
+                              Quando alguém gerar um presente com flores e te
+                              enviar o link, os detalhes aparecem aqui.
+                            </p>
+                          </div>
+                          <p class="text-[11px] text-slate-400 leading-snug">
+                            Os valores mostrados são simbólicos, só para
+                            representar o cuidado na escolha das flores e dos
+                            detalhes deste gesto de carinho.
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <label
-                        for="music-input"
-                        class="text-xs font-medium text-slate-600"
-                        >Link da música (Spotify ou YouTube)</label
-                      >
-                      <input
-                        id="music-input"
-                        type="url"
-                        inputmode="url"
-                        class="mt-1 w-full rounded-full border border-rose-100 bg-white px-3 py-2 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
-                        placeholder="Ex.: https://open.spotify.com/... ou https://www.youtube.com/watch?v=..."
-                      />
-                      <p class="mt-1 text-[11px] text-slate-400">
-                        Quem receber o link poderá abrir essa música junto com o
-                        cartão.
-                      </p>
-                    </div>
                   </div>
-                </div>
-              </section>
-
-              <!-- Como funciona -->
-              <section class="space-y-3">
-                <h2 class="text-sm font-semibold text-slate-800">
-                  Como usar este link de flores com cartão
-                </h2>
-                <div
-                  class="grid md:grid-cols-3 gap-3 text-[11px] text-slate-500"
-                >
-                  <div
-                    class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
-                  >
-                    <p class="font-semibold text-slate-800 mb-1 text-sm">
-                      1. Monte o presente
-                    </p>
-                    <p>
-                      Combine flores, buquês, mensagem e, se quiser, uma imagem
-                      da galeria por R$ 2,00.
-                    </p>
-                  </div>
-                  <div
-                    class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
-                  >
-                    <p class="font-semibold text-slate-800 mb-1 text-sm">
-                      2. Gere o link
-                    </p>
-                    <p>
-                      Clique em "Gerar link para compartilhar" e copie o link
-                      criado automaticamente.
-                    </p>
-                  </div>
-                  <div
-                    class="bg-white/80 border border-rose-100 rounded-2xl px-3 py-3"
-                  >
-                    <p class="font-semibold text-slate-800 mb-1 text-sm">
-                      3. Envie nas redes sociais
-                    </p>
-                    <p>
-                      Cole o link em conversas no WhatsApp, direct do
-                      Instagram, Facebook ou qualquer outra rede.
-                    </p>
-                  </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
 
             <!-- Coluna direita: resumo & link compartilhável -->
             <aside
               class="bg-white/90 rounded-3xl shadow-xl border border-rose-100 p-5 md:p-6 space-y-5 lg:sticky lg:top-20"
             >
-              <section class="space-y-3">
+              <section id="summary-panel" class="space-y-3">
                 <div class="flex items-start justify-between gap-2">
                   <div>
                     <h2
@@ -821,7 +989,7 @@
                 </div>
               </section>
 
-              <section class="space-y-3">
+              <section id="sender-actions" class="space-y-3">
                 <div
                   class="space-y-2 border border-rose-100 rounded-2xl p-3 bg-rose-50/70"
                 >
@@ -831,7 +999,8 @@
                   <p class="text-[11px] text-slate-500">
                     Antes de gerar o link do presente, faça o pagamento
                     simbólico para a chave Pix abaixo e marque a confirmação de
-                    pagamento.
+                    pagamento. Em seguida, informe o código de liberação
+                    recebido.
                   </p>
                   <div class="text-[11px]">
                     <p class="font-medium text-slate-800">Chave Pix (e-mail)</p>
@@ -861,7 +1030,7 @@
                     <input
                       id="pix-code"
                       type="password"
-                      maxlength="12"
+                      maxlength="40"
                       class="w-full rounded-full border border-rose-200 bg-white px-3 py-2 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 placeholder:text-slate-400"
                       placeholder="Informe o código enviado após o comprovante do Pix"
                     />
@@ -873,15 +1042,16 @@
                       id="pix-code-warning"
                       class="text-rose-500 hidden"
                     >
-                      Código de liberação inválido. Verifique com quem recebeu o pagamento.
+                      Código de liberação inválido. Verifique com quem recebeu o
+                      pagamento.
                     </p>
                   </div>
                   <p
                     id="pix-warning"
                     class="text-[11px] text-rose-500 mt-1 hidden"
                   >
-                    Você precisa confirmar o pagamento via Pix para gerar e
-                    copiar o link.
+                    Você precisa confirmar o pagamento via Pix e informar o
+                    código de liberação para gerar e copiar o link.
                   </p>
                 </div>
 
@@ -892,7 +1062,10 @@
                     Conversa sobre o Pix e comprovante
                   </p>
                   <p class="text-[11px] text-slate-500">
-                    Depois de fazer o Pix, envie o número de protocolo/ID do comprovante e, se puder, anexe também a imagem/print do comprovante. Vamos receber por e-mail ou no app de mensagens que você escolher e responder por lá.
+                    Depois de fazer o Pix, envie o número de protocolo/ID do
+                    comprovante e, se puder, anexe também a imagem/print do
+                    comprovante. Vamos receber por e-mail ou no app de
+                    mensagens que você escolher e responder por lá.
                   </p>
                   <div class="space-y-2 text-[11px]">
                     <label for="pix-protocol" class="font-medium text-slate-700"
@@ -937,11 +1110,14 @@
                       id="pix-chat-feedback"
                       class="text-[11px] text-emerald-500 hidden"
                     >
-                      Mensagem copiada. Cole no WhatsApp, Instagram ou onde preferir.
+                      Mensagem copiada. Cole no WhatsApp, Instagram ou onde
+                      preferir.
                     </p>
                   </div>
                   <p class="text-[11px] text-slate-400">
-                    Este espaço só ajuda a montar a mensagem. Depois de copiar ou enviar por e-mail, lembre-se de anexar o print/imagem do comprovante na conversa.
+                    Este espaço só ajuda a montar a mensagem. Depois de copiar
+                    ou enviar por e-mail, lembre-se de anexar o print/imagem do
+                    comprovante na conversa.
                   </p>
                 </div>
 
@@ -992,9 +1168,10 @@
                   class="text-[11px] text-slate-400 border-t border-rose-50 pt-3"
                 >
                   O link guarda as flores escolhidas, a fonte da mensagem, o
-                  texto do cartão e, se você adicionar, o link da música. Este
-                  site não verifica o pagamento automaticamente: a confirmação é
-                  feita por você após o Pix para a chave informada.
+                  texto do cartão, a opção de imagem da galeria e, se você
+                  adicionar, o link da música. Este site não verifica o
+                  pagamento automaticamente: a confirmação é feita por você após
+                  o Pix para a chave informada.
                 </div>
               </section>
             </aside>
@@ -1037,11 +1214,17 @@
           document.querySelectorAll("[data-product-id]")
         );
         const productButtonsById = new Map();
+        const productInfoById = new Map();
+
         productButtons.forEach((btn) => {
           const id = btn.dataset.productId;
-          if (id) {
-            productButtonsById.set(id, btn);
-          }
+          if (!id) return;
+          productButtonsById.set(id, btn);
+          const img = btn.querySelector("img");
+          productInfoById.set(id, {
+            image: img ? img.src : "",
+            alt: img ? img.alt : "",
+          });
         });
 
         const summaryItemsEl = document.getElementById("summary-items");
@@ -1066,6 +1249,19 @@
         const musicInputEl = document.getElementById("music-input");
         const musicPreviewEl = document.getElementById("music-preview");
         const musicPreviewLinkEl = document.getElementById("music-preview-link");
+
+        const builderPaneEl = document.getElementById("builder-pane");
+        const viewerPaneEl = document.getElementById("viewer-pane");
+        const tabBuildBtnEl = document.getElementById("tab-build");
+        const tabViewBtnEl = document.getElementById("tab-view");
+
+        const viewMessageEl = document.getElementById("view-message");
+        const viewSignatureEl = document.getElementById("view-signature");
+        const viewItemsEl = document.getElementById("view-items");
+        const viewMusicEl = document.getElementById("view-music");
+        const viewMusicLinkEl = document.getElementById("view-music-link");
+        const viewGalleryEl = document.getElementById("view-gallery");
+
         const pixConfirmEl = document.getElementById("pix-confirm");
         const pixWarningEl = document.getElementById("pix-warning");
         const pixCodeEl = document.getElementById("pix-code");
@@ -1075,6 +1271,8 @@
         const pixEmailBtnEl = document.getElementById("pix-email-btn");
         const pixCopyMsgBtnEl = document.getElementById("pix-copy-msg-btn");
         const pixChatFeedbackEl = document.getElementById("pix-chat-feedback");
+        const senderActionsEl = document.getElementById("sender-actions");
+        const summaryPanelEl = document.getElementById("summary-panel");
 
         // Código de liberação fixo no front-end.
         // Altere este valor e combine-o com quem irá conferir os pagamentos.
@@ -1099,6 +1297,153 @@
           }
         }
 
+        function setActiveTab(mode) {
+          const isView = mode === "view";
+
+          if (builderPaneEl && viewerPaneEl) {
+            if (isView) {
+              builderPaneEl.classList.add("hidden");
+              viewerPaneEl.classList.remove("hidden");
+            } else {
+              builderPaneEl.classList.remove("hidden");
+              viewerPaneEl.classList.add("hidden");
+            }
+          }
+
+          if (senderActionsEl) {
+            if (isView) {
+              senderActionsEl.classList.add("hidden");
+            } else {
+              senderActionsEl.classList.remove("hidden");
+            }
+          }
+
+          if (summaryPanelEl) {
+            if (isView) {
+              summaryPanelEl.classList.add("hidden");
+            } else {
+              summaryPanelEl.classList.remove("hidden");
+            }
+          }
+
+          if (tabBuildBtnEl && tabViewBtnEl) {
+            tabBuildBtnEl.classList.toggle("bg-rose-500", !isView);
+            tabBuildBtnEl.classList.toggle("text-white", !isView);
+            tabBuildBtnEl.classList.toggle("shadow-sm", !isView);
+            tabBuildBtnEl.classList.toggle("bg-white", isView);
+            tabBuildBtnEl.classList.toggle("text-rose-500", isView);
+
+            tabViewBtnEl.classList.toggle("bg-rose-500", isView);
+            tabViewBtnEl.classList.toggle("text-white", isView);
+            tabViewBtnEl.classList.toggle("shadow-sm", isView);
+            tabViewBtnEl.classList.toggle("bg-white", !isView);
+            tabViewBtnEl.classList.toggle("text-rose-500", !isView);
+          }
+        }
+
+        function updateMusicPreviews() {
+          const raw = (state.musicUrl || "").trim();
+
+          // Builder preview
+          if (musicPreviewEl && musicPreviewLinkEl) {
+            if (!raw) {
+              musicPreviewEl.hidden = true;
+              musicPreviewLinkEl.removeAttribute("href");
+            } else {
+              let normalized = raw;
+              if (!/^https?:\/\//i.test(normalized)) {
+                normalized = "https://" + normalized;
+              }
+              musicPreviewEl.hidden = false;
+              musicPreviewLinkEl.href = normalized;
+            }
+          }
+
+          // Viewer preview
+          if (viewMusicEl && viewMusicLinkEl) {
+            if (!raw) {
+              viewMusicEl.hidden = true;
+              viewMusicLinkEl.removeAttribute("href");
+            } else {
+              let normalized = raw;
+              if (!/^https?:\/\//i.test(normalized)) {
+                normalized = "https://" + normalized;
+              }
+              viewMusicEl.hidden = false;
+              viewMusicLinkEl.href = normalized;
+            }
+          }
+        }
+
+        function updateViewPane() {
+          if (!viewMessageEl || !viewSignatureEl || !viewItemsEl) return;
+
+          const msg = (state.message || "").trim();
+          if (msg) {
+            viewMessageEl.textContent = msg;
+          } else {
+            viewMessageEl.textContent =
+              "Quando alguém te enviar um link de presente, a mensagem aparece aqui.";
+          }
+
+          const sig = (state.signature || "").trim();
+          viewSignatureEl.textContent = sig || "Seu amor secreto";
+
+          // Fonte na visualização
+          FONT_CLASSES.forEach((cls) => {
+            viewMessageEl.classList.remove(cls);
+          });
+          if (state.fontClass) {
+            viewMessageEl.classList.add(state.fontClass);
+          }
+
+          const items = Object.values(state.items);
+          if (!items.length) {
+            viewItemsEl.innerHTML =
+              '<p class="text-xs text-slate-400">Quando alguém gerar um presente com flores e te enviar o link, os detalhes aparecem aqui.</p>';
+          } else {
+            const rows = items
+              .map((item) => {
+                const info = productInfoById.get(item.id) || {};
+                const lineTotal = item.price * item.qty;
+                let imgHtml = "";
+                if (info.image) {
+                  imgHtml =
+                    '<div class="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-rose-100 bg-rose-50">' +
+                    '<img src="' +
+                    info.image +
+                    '" alt="' +
+                    (info.alt || item.name) +
+                    '" class="w-full h-full object-cover" loading="lazy" />' +
+                    "</div>";
+                }
+                return (
+                  '<div class="flex items-center gap-3">' +
+                  imgHtml +
+                  '<div class="min-w-0 flex-1">' +
+                  '<p class="font-medium text-slate-800 truncate">' +
+                  item.name +
+                  "</p>" +
+                  '<p class="text-[11px] text-slate-400">Qtd. ' +
+                  item.qty +
+                  "</p>" +
+                  "</div>" +
+                  '<div class="text-[11px] text-slate-500 flex-shrink-0 text-right">' +
+                  formatCurrency(lineTotal) +
+                  "</div>" +
+                  "</div>"
+                );
+              })
+              .join("");
+            viewItemsEl.innerHTML = rows;
+          }
+
+          // Galeria
+          if (viewGalleryEl) {
+            viewGalleryEl.hidden = !state.includeGallery;
+          }
+        }
+
         function updateSummary() {
           const items = Object.values(state.items);
 
@@ -1117,7 +1462,7 @@
                   "</p>" +
                   '<p class="text-[11px] text-slate-400">Qtd. ' +
                   item.qty +
-                  "  b7 " +
+                  " · " +
                   formatCurrency(item.price) +
                   " cada</p>" +
                   "</div>" +
@@ -1144,7 +1489,7 @@
             summaryItemsEl.innerHTML = rows;
           }
 
-          const flowersTotal = items.reduce(function (sum, item) {
+          const flowersTotal = items.reduce((sum, item) => {
             return sum + item.price * item.qty;
           }, 0);
           const galleryTotal = state.includeGallery ? state.galleryPrice : 0;
@@ -1153,21 +1498,25 @@
           flowersTotalEl.textContent = formatCurrency(flowersTotal);
           galleryTotalEl.textContent = formatCurrency(galleryTotal);
           grandTotalEl.textContent = formatCurrency(grandTotal);
+
+          updateViewPane();
         }
 
-        function selectFont(fontClass, updateButtons) {
-          if (updateButtons === void 0) updateButtons = true;
+        function selectFont(fontClass, updateButtons = true) {
           if (!FONT_CLASSES.includes(fontClass)) return;
           state.fontClass = fontClass;
 
-          FONT_CLASSES.forEach(function (cls) {
+          FONT_CLASSES.forEach((cls) => {
             messagePreviewEl.classList.remove(cls);
+            if (viewMessageEl) viewMessageEl.classList.remove(cls);
           });
+
           messagePreviewEl.classList.add(fontClass);
+          if (viewMessageEl) viewMessageEl.classList.add(fontClass);
 
           if (updateButtons) {
-            fontButtons.forEach(function (btn) {
-              var isActive = btn.dataset.font === fontClass;
+            fontButtons.forEach((btn) => {
+              const isActive = btn.dataset.font === fontClass;
               btn.classList.toggle("border-rose-300", isActive);
               btn.classList.toggle("bg-rose-50", isActive);
               btn.classList.toggle("text-rose-600", isActive);
@@ -1175,32 +1524,14 @@
           }
         }
 
-        function updateMusicPreview() {
-          if (!musicPreviewEl || !musicPreviewLinkEl) return;
-          var url = (state.musicUrl || "").trim();
-          if (!url) {
-            musicPreviewEl.hidden = true;
-            musicPreviewLinkEl.removeAttribute("href");
-            return;
-          }
-          var normalized = url;
-          if (!/^https?:\/\//i.test(normalized)) {
-            normalized = "https://" + normalized;
-          }
-          musicPreviewEl.hidden = false;
-          musicPreviewLinkEl.href = normalized;
-        }
-
         function buildShareUrl() {
-          var url = new URL(window.location.href);
-          var params = new URLSearchParams();
+          const url = new URL(window.location.href);
+          const params = new URLSearchParams();
 
-          var items = Object.values(state.items);
+          const items = Object.values(state.items);
           if (items.length) {
-            var packed = items
-              .map(function (item) {
-                return item.id + ":" + item.qty;
-              })
+            const packed = items
+              .map((item) => `${item.id}:${item.qty}`)
               .join(",");
             params.set("itens", packed);
           }
@@ -1214,12 +1545,12 @@
           }
 
           if (state.message) {
-            var msg = state.message.slice(0, 400);
+            const msg = state.message.slice(0, 400);
             params.set("msg", msg);
           }
 
           if (state.signature) {
-            var ass = state.signature.slice(0, 60);
+            const ass = state.signature.slice(0, 60);
             params.set("ass", ass);
           }
 
@@ -1227,57 +1558,61 @@
             params.set("musica", state.musicUrl.trim());
           }
 
+          // Quem recebe o link deve cair direto na aba de visualização
+          params.set("tab", "ver");
+
           url.search = params.toString();
           return url.toString();
         }
 
         function loadFromUrl() {
-          var params = new URLSearchParams(window.location.search);
-          var itensParam = params.get("itens");
+          const params = new URLSearchParams(window.location.search);
+
+          const itensParam = params.get("itens");
           if (itensParam) {
-            itensParam.split(",").forEach(function (pair) {
-              var parts = pair.split(":");
+            itensParam.split(",").forEach((pair) => {
+              const parts = pair.split(":");
               if (parts.length !== 2) return;
-              var id = parts[0];
-              var qtyStr = parts[1];
-              var btn = productButtonsById.get(id);
+              const id = parts[0];
+              const qtyStr = parts[1];
+              const btn = productButtonsById.get(id);
               if (!btn) return;
-              var name = btn.dataset.productName || "Item de flor";
-              var price = parseFloat(btn.dataset.productPrice || "0");
-              var qty = parseInt(qtyStr, 10);
+              const name = btn.dataset.productName || "Item de flor";
+              const price = parseFloat(btn.dataset.productPrice || "0");
+              let qty = parseInt(qtyStr, 10);
               if (!qty || qty < 1) qty = 1;
-              state.items[id] = { id: id, name: name, price: price, qty: qty };
+              state.items[id] = { id, name, price, qty };
             });
           }
 
-          var fontParam = params.get("fonte");
+          const fontParam = params.get("fonte");
           if (fontParam && FONT_CLASSES.includes(fontParam)) {
             selectFont(fontParam, true);
           } else {
             selectFont(state.fontClass, true);
           }
 
-          var galeriaParam = params.get("galeria");
+          const galeriaParam = params.get("galeria");
           state.includeGallery = galeriaParam === "1";
           if (galleryToggleEl) {
             galleryToggleEl.checked = state.includeGallery;
           }
 
-          var msgParam = params.get("msg");
+          const msgParam = params.get("msg");
           if (msgParam && messageInputEl) {
             state.message = msgParam.slice(0, 280);
             messageInputEl.value = state.message;
             messagePreviewEl.textContent = state.message;
           }
 
-          var assParam = params.get("ass");
+          const assParam = params.get("ass");
           if (assParam && signatureInputEl) {
             state.signature = assParam.slice(0, 60);
             signatureInputEl.value = state.signature;
             signaturePreviewEl.textContent = state.signature;
           }
 
-          var musicaParam = params.get("musica");
+          const musicaParam = params.get("musica");
           if (musicaParam && musicInputEl) {
             state.musicUrl = musicaParam;
             musicInputEl.value = musicaParam;
@@ -1287,19 +1622,43 @@
             charCountEl.textContent = String(messageInputEl.value.length);
           }
 
-          updateMusicPreview();
+          updateMusicPreviews();
           updateSummary();
+
+          const tabParam = params.get("tab");
+          const hasSharedData =
+            params.has("itens") ||
+            params.has("msg") ||
+            params.has("ass") ||
+            params.has("musica") ||
+            params.get("galeria") === "1";
+
+          if (tabParam === "ver" || tabParam === "view") {
+            setActiveTab("view");
+          } else if (tabParam === "montar" || tabParam === "build") {
+            setActiveTab("build");
+          } else if (hasSharedData) {
+            setActiveTab("view");
+          } else {
+            setActiveTab("build");
+          }
+        }
+
+        // Eventos de abas
+        if (tabBuildBtnEl && tabViewBtnEl) {
+          tabBuildBtnEl.addEventListener("click", () => setActiveTab("build"));
+          tabViewBtnEl.addEventListener("click", () => setActiveTab("view"));
         }
 
         // Eventos de produtos
-        productButtons.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var id = btn.dataset.productId;
-            var name = btn.dataset.productName || "Item de flor";
-            var price = parseFloat(btn.dataset.productPrice || "0");
+        productButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.dataset.productId;
+            const name = btn.dataset.productName || "Item de flor";
+            const price = parseFloat(btn.dataset.productPrice || "0");
             if (!id) return;
             if (!state.items[id]) {
-              state.items[id] = { id: id, name: name, price: price, qty: 0 };
+              state.items[id] = { id, name, price, qty: 0 };
             }
             state.items[id].qty += 1;
             updateSummary();
@@ -1308,11 +1667,11 @@
 
         // Aumentar/diminuir quantidade a partir do resumo
         if (summaryItemsEl) {
-          summaryItemsEl.addEventListener("click", function (event) {
-            var target = event.target;
+          summaryItemsEl.addEventListener("click", (event) => {
+            const target = event.target;
             if (!(target instanceof HTMLElement)) return;
-            var action = target.dataset.action;
-            var id = target.dataset.id;
+            const action = target.dataset.action;
+            const id = target.dataset.id;
             if (!action || !id || !state.items[id]) return;
 
             if (action === "increase") {
@@ -1328,18 +1687,19 @@
         }
 
         // Fonte da mensagem
-        fontButtons.forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var fontClass = btn.dataset.font;
+        fontButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const fontClass = btn.dataset.font;
             if (!fontClass) return;
             selectFont(fontClass, true);
+            updateViewPane();
           });
         });
 
         // Mensagem do cartão
         if (messageInputEl) {
-          messageInputEl.addEventListener("input", function () {
-            var value = messageInputEl.value || "";
+          messageInputEl.addEventListener("input", () => {
+            let value = messageInputEl.value || "";
             if (value.length > 280) {
               value = value.slice(0, 280);
               messageInputEl.value = value;
@@ -1354,13 +1714,14 @@
               messagePreviewEl.textContent =
                 "Clique para escrever uma mensagem cheia de amor, do jeitinho que você diria pessoalmente.";
             }
+            updateViewPane();
           });
         }
 
         // Assinatura
         if (signatureInputEl) {
-          signatureInputEl.addEventListener("input", function () {
-            var value = signatureInputEl.value || "";
+          signatureInputEl.addEventListener("input", () => {
+            let value = signatureInputEl.value || "";
             if (value.length > 60) {
               value = value.slice(0, 60);
               signatureInputEl.value = value;
@@ -1371,30 +1732,31 @@
             } else {
               signaturePreviewEl.textContent = "Seu amor secreto";
             }
+            updateViewPane();
           });
         }
 
         // Música
         if (musicInputEl) {
-          musicInputEl.addEventListener("input", function () {
+          musicInputEl.addEventListener("input", () => {
             state.musicUrl = musicInputEl.value || "";
-            updateMusicPreview();
+            updateMusicPreviews();
           });
         }
 
         // Galeria
         if (galleryToggleEl) {
-          galleryToggleEl.addEventListener("change", function () {
+          galleryToggleEl.addEventListener("change", () => {
             state.includeGallery = !!galleryToggleEl.checked;
             updateSummary();
           });
         }
 
         function hasPixAuthorization() {
-          var confirmed = pixConfirmEl && pixConfirmEl.checked;
-          var codeOk = true;
+          const confirmed = pixConfirmEl && pixConfirmEl.checked;
+          let codeOk = true;
           if (pixCodeEl) {
-            var value = (pixCodeEl.value || "").trim();
+            const value = (pixCodeEl.value || "").trim();
             codeOk = value === PIX_RELEASE_CODE;
           }
 
@@ -1416,20 +1778,20 @@
         }
 
         function buildPixChatMessage() {
-          var protocol = "";
+          let protocol = "";
           if (pixProtocolEl) {
             protocol = (pixProtocolEl.value || "").trim();
           }
-          var extra = "";
+          let extra = "";
           if (pixChatMsgEl) {
             extra = (pixChatMsgEl.value || "").trim();
           }
-          var total = "";
+          let total = "";
           if (grandTotalEl && grandTotalEl.textContent) {
             total = grandTotalEl.textContent.trim();
           }
 
-          var message =
+          let message =
             "Olá,\n\n" +
             "Acabei de fazer um Pix para o presente de flores com cartão.\n\n" +
             "Número de protocolo / ID do Pix: " +
@@ -1453,8 +1815,8 @@
         }
 
         if (pixEmailBtnEl) {
-          pixEmailBtnEl.addEventListener("click", function () {
-            var protocol = pixProtocolEl
+          pixEmailBtnEl.addEventListener("click", () => {
+            const protocol = pixProtocolEl
               ? (pixProtocolEl.value || "").trim()
               : "";
             if (!protocol) {
@@ -1466,9 +1828,9 @@
               }
               return;
             }
-            var body = buildPixChatMessage();
-            var subject = "Confirmação de Pix - Flores com cartão";
-            var mailto =
+            const body = buildPixChatMessage();
+            const subject = "Confirmação de Pix - Flores com cartão";
+            const mailto =
               "mailto:sepoloendeu@gmail.com?subject=" +
               encodeURIComponent(subject) +
               "&body=" +
@@ -1478,8 +1840,8 @@
         }
 
         if (pixCopyMsgBtnEl) {
-          pixCopyMsgBtnEl.addEventListener("click", function () {
-            var protocol = pixProtocolEl
+          pixCopyMsgBtnEl.addEventListener("click", () => {
+            const protocol = pixProtocolEl
               ? (pixProtocolEl.value || "").trim()
               : "";
             if (!protocol) {
@@ -1491,13 +1853,13 @@
               }
               return;
             }
-            var textToCopy = buildPixChatMessage();
+            const textToCopy = buildPixChatMessage();
             if (!textToCopy) return;
 
-            var showFeedback = function () {
+            const showFeedback = () => {
               if (pixChatFeedbackEl) {
                 pixChatFeedbackEl.classList.remove("hidden");
-                setTimeout(function () {
+                setTimeout(() => {
                   pixChatFeedbackEl.classList.add("hidden");
                 }, 2000);
               }
@@ -1507,9 +1869,9 @@
               navigator.clipboard
                 .writeText(textToCopy)
                 .then(showFeedback)
-                .catch(function () {
+                .catch(() => {
                   try {
-                    var temp = document.createElement("textarea");
+                    const temp = document.createElement("textarea");
                     temp.value = textToCopy;
                     document.body.appendChild(temp);
                     temp.select();
@@ -1520,7 +1882,7 @@
                 });
             } else {
               try {
-                var temp = document.createElement("textarea");
+                const temp = document.createElement("textarea");
                 temp.value = textToCopy;
                 document.body.appendChild(temp);
                 temp.select();
@@ -1534,12 +1896,12 @@
 
         // Compartilhamento
         if (shareBtnEl) {
-          shareBtnEl.addEventListener("click", function () {
+          shareBtnEl.addEventListener("click", () => {
             if (!hasPixAuthorization()) {
               return;
             }
 
-            var url = buildShareUrl();
+            const url = buildShareUrl();
             if (shareLinkEl) {
               shareLinkEl.value = url;
             }
@@ -1549,9 +1911,9 @@
                 .share({
                   title: "Flores com cartão romântico",
                   text: "Veja o presente com flores e cartão que preparei para você.",
-                  url: url,
+                  url,
                 })
-                .catch(function () {
+                .catch(() => {
                   // usuário pode simplesmente cancelar; não fazemos nada
                 });
             }
@@ -1560,52 +1922,44 @@
 
         // Copiar link
         if (copyBtnEl) {
-          copyBtnEl.addEventListener("click", function () {
+          copyBtnEl.addEventListener("click", () => {
             if (!shareLinkEl || !shareLinkEl.value) {
               // Se ainda não há link gerado, só permite gerar se Pix estiver autorizado
               if (!hasPixAuthorization()) {
                 return;
               }
-              var url = buildShareUrl();
+              const url = buildShareUrl();
               shareLinkEl.value = url;
             }
 
-            var textToCopy = shareLinkEl.value;
+            const textToCopy = shareLinkEl.value;
             if (!textToCopy) return;
+
+            const showFeedback = () => {
+              if (copyFeedbackEl) {
+                copyFeedbackEl.hidden = false;
+                setTimeout(() => {
+                  copyFeedbackEl.hidden = true;
+                }, 2000);
+              }
+            };
 
             if (navigator.clipboard && navigator.clipboard.writeText) {
               navigator.clipboard
                 .writeText(textToCopy)
-                .then(function () {
-                  if (copyFeedbackEl) {
-                    copyFeedbackEl.hidden = false;
-                    setTimeout(function () {
-                      copyFeedbackEl.hidden = true;
-                    }, 2000);
-                  }
-                })
-                .catch(function () {
+                .then(showFeedback)
+                .catch(() => {
                   try {
                     shareLinkEl.select();
                     document.execCommand("copy");
-                    if (copyFeedbackEl) {
-                      copyFeedbackEl.hidden = false;
-                      setTimeout(function () {
-                        copyFeedbackEl.hidden = true;
-                      }, 2000);
-                    }
+                    showFeedback();
                   } catch (e) {}
                 });
             } else {
               try {
                 shareLinkEl.select();
                 document.execCommand("copy");
-                if (copyFeedbackEl) {
-                  copyFeedbackEl.hidden = false;
-                  setTimeout(function () {
-                    copyFeedbackEl.hidden = true;
-                  }, 2000);
-                }
+                showFeedback();
               } catch (e) {}
             }
           });
